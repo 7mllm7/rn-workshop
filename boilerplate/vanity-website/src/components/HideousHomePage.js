@@ -1,5 +1,6 @@
 import React from 'react';
-
+import * as actions from '../store/actions'
+import {store} from '../store'
 export class HideousHomePage extends React.Component {
 
   /*
@@ -11,7 +12,10 @@ export class HideousHomePage extends React.Component {
     this.state = {
       marqueeText: 'Chimpanzees with their tongues out are cool. I wonder if they are equally enamored by our antics.'
     }
+
+    store.dispatch(actions.incrementVisitorCount());
   }
+
 
   render() {
     return (
@@ -19,7 +23,7 @@ export class HideousHomePage extends React.Component {
         <div>
           Welcome to my Web Site! My name is Aaron Greenwald.
         </div>
-        <div>#TODO Implement a VisitorCount component</div>
+        <div>Visitor count: {this.props.visitorCount}</div>
         <div>
           <a href="#/monkeys">Check out some cool pictures!!</a>
         </div>
